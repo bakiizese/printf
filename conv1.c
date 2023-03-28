@@ -1,30 +1,10 @@
 #include "main.h"
-/**
- * p_char - entyr
- * @typ: var
- * @buff: array
- * @flags: var
- * @wid: var
- * @pre: var
- * @size: var
- * Return: write
- */
 int p_char(va_list typ, char buff[], int flags, int wid, int pre, int size)
 {
 	char c = va_arg(typ, int);
 
 	return (writing_char(c, buff, flags, wid, pre, size));
 }
-/**
- * p_string - entyr
- * @typ: var
- * @buff: array
- * @flags: var
- * @wid: var
- * @pre: var
- * @size: var
- * Return: write
- */
 int p_string(va_list typ, char buff[], int flags, int wid, int pre, int size)
 {
 	int len = 0, i;
@@ -65,16 +45,7 @@ int p_string(va_list typ, char buff[], int flags, int wid, int pre, int size)
 	}
 	return (write(1, str, len));
 }
-/**
- * p_percent - entyr
- * @typ: var
- * @buff: array
- * @flags: var
- * @wid: var
- * @pre: var
- * @size: var
- * Return: write
- */
+
 int p_percent(va_list typ, char buff[], int flags, int wid, int pre, int size)
 {
     UNUSE(wid);
@@ -85,16 +56,7 @@ int p_percent(va_list typ, char buff[], int flags, int wid, int pre, int size)
 	UNUSE(flags);
 	return (write(1, "%%", 1));
 }
-/**
- * p_int - entyr
- * @typ: var
- * @buff: array
- * @flags: var
- * @wid: var
- * @pre: var
- * @size: var
- * Return: write
- */
+
 int p_int(va_list typ, char buff[], int flags, int wid, int pre, int size)
 {
 	int i = SIZE_B - 2;
@@ -119,16 +81,7 @@ int p_int(va_list typ, char buff[], int flags, int wid, int pre, int size)
 	} i++;
 	return (writing_number(is_neg, i, buff, flags, wid, pre, size));
 }
-/**
- * p_bunary - entyr
- * @typ: var
- * @buff: array
- * @flags: var
- * @wid: var
- * @pre: var
- * @size: var
- * Return: write
- */
+
 int p_binary(va_list typ, char buff[], int flags, int wid, int pre, int size)
 {
 	unsigned int j, k, i, sum;
